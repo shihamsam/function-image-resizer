@@ -19,14 +19,17 @@ public static async Task Run(EventGridEvent myEvent, Stream inputBlob, TraceWrit
     // Instructions to resize the blob image.
     var instructions = new Instructions
     {
-        Width = 250,
-        Height = 250,
+        Width = 300,
+        Height = 200,
         Mode = FitMode.Crop,
         Scale = ScaleMode.Both
     };    
 
     // Get the blobname from the event's JObject.
+    // Get the blobname from the event's JObject.
     string blobName = GetBlobNameFromUrl((string)myEvent.Data["url"]);
+
+    blobName = String.Format("{0}_300x200{1}", Path.GetFileNameWithoutExtension(blobName),  Path.GetExtension(blobName));
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
