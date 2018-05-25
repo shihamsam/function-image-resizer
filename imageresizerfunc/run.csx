@@ -19,8 +19,8 @@ public static async Task Run(EventGridEvent myEvent, Stream inputBlob, TraceWrit
     // Instructions to resize the blob image.
     var instructions = new Instructions
     {
-        Width = 150,
-        Height = 150,
+        Width = 250,
+        Height = 250,
         Mode = FitMode.Crop,
         Scale = ScaleMode.Both
     };    
