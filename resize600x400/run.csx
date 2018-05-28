@@ -29,7 +29,7 @@ public static async Task Run(EventGridEvent myEvent, Stream inputBlob, TraceWrit
     // Get the blobname from the event's JObject.
     string blobName = GetBlobNameFromUrl((string)myEvent.Data["url"]);
 
-    blobName = String.Format("{0}_300x200{1}", Path.GetFileNameWithoutExtension(blobName),  Path.GetExtension(blobName));
+    blobName = String.Format("{0}_600x400{1}", Path.GetFileNameWithoutExtension(blobName),  Path.GetExtension(blobName));
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
